@@ -7,19 +7,37 @@ namespace Addition
     {
         private static Int64 MaxPairwiseProduct(Int64[] numbers)
         {
-            Int64 result = 0;
+            // Int64 result = 0;
             int n = numbers.Length;
+            int maxInd1 = -1;
             for (int i = 0; i < n; ++i)
             {
-                for (int j = i + 1; j < n; ++j)
+                if ((maxInd1 == -1) || (numbers[i] > numbers[maxInd1]))
                 {
-                    if (Convert.ToInt64(numbers[i]) * numbers[j] > result)
-                    {
-                        result = Convert.ToInt64(numbers[i]) * numbers[j];
-                    }
+                    maxInd1 = i;
                 }
             }
-            return result;
+            int maxInd2 = -1;
+            for (int j = 0; j < n ; ++j)
+            {
+                if ((numbers[j] != numbers[maxInd1]) && ((maxInd2 == -1) || numbers[j] > numbers[maxInd2]))
+                {
+                    maxInd2 = j;
+                }
+            }
+            return Convert.ToInt64(numbers[maxInd1] * numbers[maxInd2]);
+
+            // for (int i = 0; i < n; ++i)
+            // {
+            //     for (int j = i + 1; j < n; ++j)
+            //     {
+            //         if (Convert.ToInt64(numbers[i]) * numbers[j] > result)
+            //         {
+            //             result = Convert.ToInt64(numbers[i]) * numbers[j];
+            //         }
+            //     }
+            // }
+            // return result;
         }
         
         private static void RunStressTest()
