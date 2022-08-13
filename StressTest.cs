@@ -8,6 +8,16 @@ namespace Addition
         {
             int result = 0;
             int n = numbers.Length;
+            for (int i = 0; i < n; ++i)
+            {
+                for (int j = i + 1; j < n; ++j)
+                {
+                    if (numbers[i] * numbers[j] > result)
+                    {
+                        result = numbers[i] * numbers[j];
+                    }
+                }
+            }
             return n;
         }
         
@@ -17,10 +27,10 @@ namespace Addition
             var tmp = Console.ReadLine();
             n = int.Parse(tmp);
             int[] numbers = new int[n];
+            string[] arrayNumbers = Console.ReadLine().Split();
             for (int i = 0; i < n; ++i)
             {
-                int input = Console.ReadLine();
-                numbers[input]
+                numbers[i] = int.Parse(arrayNumbers[i].ToString());
             }
 
             int result = MaxPairwiseProduct(numbers);
