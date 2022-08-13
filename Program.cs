@@ -6,11 +6,13 @@ namespace Addition
     {
         static void Main(string[] args)
         {
-            var input = Console.ReadLine();
-            var nums = input.Split(' ');
-            var a = int.Parse(nums[0]);
-            var b = int.Parse(nums[1]);
-            Console.WriteLine(a + b);
+            Console.Write("input first value: ");
+            var varA = Console.ReadLine();
+            Console.Write("input second value: ");
+            var varB = Console.ReadLine();
+            var intA = int.Parse(varA);
+            var intB = int.Parse(varB);
+            Console.WriteLine(intA + intB);
         }
     }
 }
