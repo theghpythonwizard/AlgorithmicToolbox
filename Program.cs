@@ -1,20 +1,21 @@
 ﻿using System;
+// using System.Int64;
 
 namespace Addition
 {
     class Program
     {
-        private static int MaxPairwiseProduct(int[] numbers)
+        private static Int64 MaxPairwiseProduct(Int64[] numbers)
         {
-            int result = 0;
+            Int64 result = 0;
             int n = numbers.Length;
             for (int i = 0; i < n; ++i)
             {
                 for (int j = i + 1; j < n; ++j)
                 {
-                    if (numbers[i] * numbers[j] > result)
+                    if (Convert.ToInt64(numbers[i]) * numbers[j] > result)
                     {
-                        result = numbers[i] * numbers[j];
+                        result = Convert.ToInt64(numbers[i]) * numbers[j];
                     }
                 }
             }
@@ -26,14 +27,14 @@ namespace Addition
             int n;
             var tmp = Console.ReadLine();
             n = int.Parse(tmp);
-            int[] numbers = new int[n];
+            Int64[] numbers = new Int64[n];
             string[] arrayNumbers = Console.ReadLine().Split();
             for (int i = 0; i < n; ++i)
             {
                 numbers[i] = int.Parse(arrayNumbers[i].ToString());
             }
 
-            int result = MaxPairwiseProduct(numbers);
+            Int64 result = MaxPairwiseProduct(numbers);
             Console.WriteLine(result);
         }
         static void Main(string[] args)
