@@ -6,22 +6,25 @@ namespace Addition
     {
         private static int MaxPairwiseProduct(int[] numbers)
         {
-            int result;
+            int result = 0;
             int n = numbers.Length;
             return n;
         }
+        
         public static void Run()
         {
             int n;
             var tmp = Console.ReadLine();
             n = int.Parse(tmp);
             int[] numbers = new int[n];
-            foreach (int num in numbers) 
+            for (int i = 0; i < n; ++i)
             {
-                Console.WriteLine(num);
+                int input = Console.ReadLine();
+                numbers[input]
             }
-            // Console.WriteLine(numbers);
-            // Console.WriteLine(MaxPairwiseProduct());
+
+            int result = MaxPairwiseProduct(numbers);
+            Console.WriteLine(result);
         }
     }
 }
