@@ -20,7 +20,7 @@ namespace Addition
             int maxInd2 = -1;
             for (int j = 0; j < n ; ++j)
             {
-                if ((numbers[j] != numbers[maxInd1]) && ((maxInd2 == -1) || numbers[j] > numbers[maxInd2]))
+                if ((j != maxInd1) && ((maxInd2 == -1) || numbers[j] > numbers[maxInd2]))
                 {
                     maxInd2 = j;
                 }
@@ -80,18 +80,19 @@ namespace Addition
             // }
             while (true)
             {
-                Random rand = new Random();
-                int n = rand.Next() % 10 + 2;
+                Random random = new Random();
+                int n = random.Next() % 4 + 2;
                 Console.WriteLine(n);
                 List<Int64> a = new List<Int64>();
                 for (int i = 0; i < n; ++i)
                 {
-                    a.Add(rand.Next() % 100000);
+                    a.Add(random.Next() % 10);
                 }
                 for (int i = 0; i < n; ++i)
                 {
-                    Console.WriteLine(a[i].ToString() + ' ');
+                    Console.Write(a[i].ToString() + ' ');
                 }
+                Console.WriteLine();
                 Int64 res1 = MaxPairwiseProductSlow(a.ToArray());
                 Int64 res2 = MaxPairwiseProductFast(a.ToArray());
                 if (res1 != res2) {
