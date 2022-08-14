@@ -78,32 +78,32 @@ namespace Addition
             // {
             //     Console.WriteLine(n);
             // }
-            while (true)
-            {
-                Random random = new Random();
-                int n = random.Next() % 4 + 2;
-                Console.WriteLine(n);
-                List<Int64> a = new List<Int64>();
-                for (int i = 0; i < n; ++i)
-                {
-                    a.Add(random.Next() % 10);
-                }
-                for (int i = 0; i < n; ++i)
-                {
-                    Console.Write(a[i].ToString() + ' ');
-                }
-                Console.WriteLine();
-                Int64 res1 = MaxPairwiseProductSlow(a.ToArray());
-                Int64 res2 = MaxPairwiseProductFast(a.ToArray());
-                if (res1 != res2) {
-                    Console.WriteLine("Wrong Answer: {0} {1}", res1, res2);
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("OK!");
-                }
-            }
+            // while (true)
+            // {
+            //     Random random = new Random();
+            //     int n = random.Next() % 10 + 2;
+            //     Console.WriteLine(n);
+            //     List<Int64> a = new List<Int64>();
+            //     for (int i = 0; i < n; ++i)
+            //     {
+            //         a.Add(random.Next() % 100000);
+            //     }
+            //     for (int i = 0; i < n; ++i)
+            //     {
+            //         Console.Write(a[i].ToString() + ' ');
+            //     }
+            //     Console.WriteLine();
+            //     Int64 res1 = MaxPairwiseProductSlow(a.ToArray());
+            //     Int64 res2 = MaxPairwiseProductFast(a.ToArray());
+            //     if (res1 != res2) {
+            //         Console.WriteLine("Wrong Answer: {0} {1}", res1, res2);
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         Console.WriteLine("OK!");
+            //     }
+            // }
             RunStressTest();
         }
     }
