@@ -28,7 +28,9 @@ namespace Addition
             return Convert.ToInt64(numbers[maxInd1] * numbers[maxInd2]);
         }
 
-        private static Int64 MaxPairwiseProductSlow(Int64[] numbers)
+        private static Int64 MaxPairwiseProductSlow(Int64[] numbers) {
+            Int64 result = 0;
+            int n = numbers.Length;
             for (int i = 0; i < n; ++i)
             {
                 for (int j = i + 1; j < n; ++j)
@@ -54,7 +56,7 @@ namespace Addition
                 numbers[i] = int.Parse(arrayNumbers[i].ToString());
             }
 
-            Int64 result = MaxPairwiseProduct(numbers);
+            Int64 result = MaxPairwiseProductFast(numbers);
             Console.WriteLine(result);
         }
         static void Main(string[] args)
@@ -76,15 +78,32 @@ namespace Addition
             // {
             //     Console.WriteLine(n);
             // }
-            // while (true)
-            // {
-            //     Random rand = new Random();
-            //     int n = rand % 10 + 2;
-            // }
-            // RunStressTest();
-            Random rand = new Random();
-            int n = rand % 10 + 2;
-            Console.WriteLine(n);
+            while (true)
+            {
+                Random rand = new Random();
+                int n = rand.Next() % 10 + 2;
+                Console.WriteLine(n);
+                List<Int64> a = new List<Int64>();
+                for (int i = 0; i < n; ++i)
+                {
+                    a.Add(rand.Next() % 100000);
+                }
+                for (int i = 0; i < n; ++i)
+                {
+                    Console.WriteLine(a[i].ToString() + ' ');
+                }
+                Int64 res1 = MaxPairwiseProductSlow(a.ToArray());
+                Int64 res2 = MaxPairwiseProductFast(a.ToArray());
+                if (res1 != res2) {
+                    Console.WriteLine("Wrong Answer: {0} {1}", res1, res2);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("OK!");
+                }
+            }
+            RunStressTest();
         }
     }
 }
