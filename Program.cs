@@ -5,7 +5,7 @@ namespace Addition
 {
     class Program
     {
-        private static Int64 MaxPairwiseProduct(Int64[] numbers)
+        private static Int64 MaxPairwiseProductFast(Int64[] numbers)
         {
             // Int64 result = 0;
             int n = numbers.Length;
@@ -26,18 +26,20 @@ namespace Addition
                 }
             }
             return Convert.ToInt64(numbers[maxInd1] * numbers[maxInd2]);
+        }
 
-            // for (int i = 0; i < n; ++i)
-            // {
-            //     for (int j = i + 1; j < n; ++j)
-            //     {
-            //         if (Convert.ToInt64(numbers[i]) * numbers[j] > result)
-            //         {
-            //             result = Convert.ToInt64(numbers[i]) * numbers[j];
-            //         }
-            //     }
-            // }
-            // return result;
+        private static Int64 MaxPairwiseProductSlow(Int64[] numbers)
+            for (int i = 0; i < n; ++i)
+            {
+                for (int j = i + 1; j < n; ++j)
+                {
+                    if (Convert.ToInt64(numbers[i]) * numbers[j] > result)
+                    {
+                        result = Convert.ToInt64(numbers[i]) * numbers[j];
+                    }
+                }
+            }
+            return result;
         }
         
         private static void RunStressTest()
@@ -74,7 +76,15 @@ namespace Addition
             // {
             //     Console.WriteLine(n);
             // }
-            RunStressTest();
+            // while (true)
+            // {
+            //     Random rand = new Random();
+            //     int n = rand % 10 + 2;
+            // }
+            // RunStressTest();
+            Random rand = new Random();
+            int n = rand % 10 + 2;
+            Console.WriteLine(n);
         }
     }
 }
